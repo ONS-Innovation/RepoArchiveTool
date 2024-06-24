@@ -192,8 +192,3 @@ Once created and installed, you need to generate a Private Key for that Github A
 This file needs to be renamed **repo-archive-tool.pem** ([documentation](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps)).
 
 If you do not have access to organisation settings, you need to request a .pem file for the app.
-
-## Future Developments
-
-- Email Notification to Repo Owner at time of storage
-- Add front end filter for repo type

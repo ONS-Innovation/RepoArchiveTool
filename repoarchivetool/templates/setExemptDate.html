@@ -34,19 +34,26 @@
   <h1 class="ons-u-mt-l">Set Exempt Date for {{ repoName }}</h1>
 
 	<form action="/set_exempt_date?repoName={{ repoName }}" method="post">
-		<div class="ons-panel ons-panel--info ons-panel--no-title ons-u-mb-s">
+		<div class="ons-panel {% if message == "" %}ons-panel--info{% else %}ons-panel--error{% endif %} ons-panel--no-title ons-u-mb-s">
 			<span class="ons-panel__assistive-text ons-u-vh">Important information: </span>
 			<div class="ons-panel__body">
+				<p class="ons-panel__error">
+					<strong>{{ message }}</strong>
+				</p>
+
 				<div class="ons-field ons-question__answer">
 					<div class="ons-field">
-						<label class="ons-label" for="select-user">User</label>
-						<select id="select-user" name="select-user" class="ons-input ons-input--select">
-							<option value="" selected disabled>Select an option</option>
-							
-							{% for user in users %}
-								<option value="{{ loop.index }}">{{ user["name"] }} ({{ user["email"] }})</option>
-							{% endfor %}
-						</select>
+						<label class="ons-label ons-label--with-description" aria-describedby="name-hint"
+							for="name">Name</label>
+						<span id="name-hint" class="ons-label__description  ons-input--with-description">Your first and last name.</span>
+						<input type="text" id="name" name="name" class="ons-input ons-input--text ons-input-type__input" required />
+					</div>
+
+					<div class="ons-field">
+						<label class="ons-label ons-label--with-description" aria-describedby="email-hint"
+							for="email">Email</label>
+						<span id="email-hint" class="ons-label__description  ons-input--with-description">Your ONS email.</span>
+						<input type="email" id="email" name="email" class="ons-input ons-input--text ons-input-type__input" required />
 					</div>
 					
 					<div class="ons-field">

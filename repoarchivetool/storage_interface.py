@@ -12,7 +12,7 @@ def get_s3_client():
         Returns:
             S3 Client
     """
-    session = boto3.Session()
+    session = boto3.Session(profile_name="ons_sdp_sandbox")
     s3 = session.client("s3")
 
     return s3
